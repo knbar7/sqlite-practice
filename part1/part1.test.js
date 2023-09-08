@@ -171,6 +171,7 @@ describe("messing around", () => {
     it("you should not be able to create two favorites with the same dog_id and user_id", async () => {
       expect(
         await doesLineExistInTableSchema(db, "favorites", (line) => {
+          console.log(line)
           return (
             normalizeLine(line).includes("unique(user_id, dog_id)") ||
             normalizeLine(line).includes("unique(dog_id, user_id)")
